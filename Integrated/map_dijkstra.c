@@ -457,7 +457,7 @@ void PORT2_IRQHandler(void)
     if (status & GPIO_PIN6)
     {
         notchesdetectedRight++;
-        distance += NOTCHLENGTH;
+        distance += 1;
         if (mode == MAPPING && testNotchStatus == 1)
         {
             // 0 = N , 1= S, 2= E, 3 = W
