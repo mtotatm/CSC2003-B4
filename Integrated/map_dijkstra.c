@@ -1397,19 +1397,20 @@ void initialise_Sensor(void)
 
     int a = CS_getSMCLK();
 
-    /* Configuring P5.6 as Trigger, 5.7 as Echo */
+    /* Configuring P6.6 as Trigger, 6.7 as Echo */
     GPIO_setAsOutputPin(GPIO_PORT_P6, GPIO_PIN6);
     GPIO_setOutputLowOnPin(GPIO_PORT_P6, GPIO_PIN6);
     GPIO_setAsInputPinWithPullDownResistor(GPIO_PORT_P6, GPIO_PIN7);
 
-    /* Configuring P3.6 as Trigger, 2.7 as Echo */
+    /* Configuring P3.6 as Trigger, 3.7 as Echo */
     GPIO_setAsOutputPin(GPIO_PORT_P3, GPIO_PIN6);
     GPIO_setOutputLowOnPin(GPIO_PORT_P3, GPIO_PIN6);
     GPIO_setAsInputPinWithPullDownResistor(GPIO_PORT_P3, GPIO_PIN7);
 
     /* Configuring P4.6 as Trigger, 4.7 as Echo */
     GPIO_setAsOutputPin(GPIO_PORT_P4, GPIO_PIN6);
-    GPIO_setOutputLowOnPin(GPIO_PORT_P4, GPIO_PIN    GPIO_setAsInputPinWithPullDownResistor(GPIO_PORT_P4, GPIO_PIN7);
+    GPIO_setOutputLowOnPin(GPIO_PORT_P4, GPIO_PIN6);
+    GPIO_setAsInputPinWithPullDownResistor(GPIO_PORT_P4, GPIO_PIN7);
 
     /* Configuring Timer_A0 for Up Mode */
     Timer_A_configureUpMode(TIMER_A2_BASE, &upConfigUltra);
