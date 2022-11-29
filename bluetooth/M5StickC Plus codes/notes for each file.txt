@@ -1,0 +1,6 @@
+main.m5f file
+- connect m5 stick c plus to internet and get the api key to link it with flow.m5stack.com 
+to run the codes
+- import to flow.m5stack.com to get the codes
+m5 codes.py
+-add this code to m5 stick c test.py storage when connecting using usb  

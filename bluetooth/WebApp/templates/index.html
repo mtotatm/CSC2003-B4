@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <link rel="stylesheet" href="/static/index.css">
+    </head>
+    <body onload="update_values();">
+        <h1>Drunken Car</h1>
+        <div class="chatwindow">
+            <p>Sensor Data</p>
+            <textarea id="chat" cols="70" rows="10">Sensor Data</textarea> 
+            <p>Message</p>
+            <textarea id="message" cols="70" rows="10"></textarea> 
+            <p>Mapping</p>
+            <textarea id="mapping" cols="70" rows="10"></textarea> 
+
+        </div>
+        <button id="clear_btn">Clear Data</button>
+
+        <div>
+            <form method="post">
+                <input type="text" name = "Start" id="X_txt">
+                <input type="text" name = "End" id="Y_txt">
+                <input type="text" name = "Direction" id="Z_txt">
+                <input type="Submit">
+            </form>
+        </div>
+
+        <script type="text/javascript" charset="utf-8">
+            
+            function update_values(){
+                var recent="";
+                $.getJSON('/getdata',
+                function(data){
+                   drunk = data.drunk;
+                   message = data.message;
+                   mapping = data.mapping;
+
+                   console.log(recent);
+                   console.log(message);
+                   console.log(mapping);
+
+                   $('#chat').val($('#chat').val() + drunk +"\n");
+                   $('#chat').scrollTop($('#chat')[0].scrollHeight);
+
+                   $('#message').val($('#message').val() + message +"\n");
+                   $('#message').scrollTop($('#message')[0].scrollHeight);
+
+                   $('#mapping').val($('#mapping').val() + mapping +"\n");
+                   $('#mapping').scrollTop($('#mapping')[0].scrollHeight);
+                });
+            };
+
+            document.getElementById("clear_btn").addEventListener('click',function(){
+                document.getElementById('chat').value = '';
+                document.getElementById('message').value = '';
+                document.getElementById('mapping').value = '';
+
+            })
+            setInterval(update_values,3000);
+            //setInterval(update_message,3000);
+        </script>
+    </body>
+</html>
+
+

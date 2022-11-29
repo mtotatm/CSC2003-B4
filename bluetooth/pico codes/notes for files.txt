@@ -1,0 +1,7 @@
+build folder
+- consist of the build files
+- Mainly the uf2 extension file is needed
+- start the pico storage and put the uf2 file in to let the pico run the file
+UART folder
+- consist of the CMakeLists and the codes for pico
+- build the codes whenever there are changes to it 
